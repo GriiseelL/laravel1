@@ -8,4 +8,6 @@ class Car extends Model
 {
     protected $primaryKey = 'id_car';
     protected $table = 'car';
+
+    // public $timestamps = false;
 }
