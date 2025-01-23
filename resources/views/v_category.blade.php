@@ -10,22 +10,22 @@
 </head>
 
 <body>
-    <form action="{{Route ('input')}}">
+    <form action="{{Route('category.store')}}">
     <div class="container-fluid container">
-        <h1 style="text-align: center">CAR</h1>
+        <h1 style="text-align: center">CATEGORY</h1>
         <table class="table table-info">
             <tr>
-                <th>Merk</th>
-                <th>Image</th>
-                <th>Category</th>
+                <th>Id Category</th>
+                <th>Nama</th>
                 <th>Action</th>
             </tr>
-            @forelse ($mobil as $car)
+            @forelse ($kategori as $category)
                 <tr>
-                    <td>{{$car->merk}}</td>
-                    <td>{{$car->image}}</td>
-                    <td>{{$car->category}}</td>
-                    <td><a href="{{route('viewEdit', $car->id_car)}}">edit</a>/<a href="{{route('actionDelete', $car->id_car)}}">delete</a></td>
+                    <td>{{$category->id_category}}</td>
+                    <td>{{$category->name}}</td>
+                    {{-- <td>{{$car->category}}</td> --}}
+                    <td><a href="{{route('category.edit', $category->id_category)}}">edit</a>/<a
+                            {{-- href="{{route('actionDelete', $car->id_car)}}">delete</a></td> --}}
                 </tr>
             @empty
                 <tr>
@@ -33,7 +33,7 @@
                 </tr>
             @endforelse
         </table>
-        <button type="submit" class="btn btn-primary">Primary</button>
+        <button type="button" class="btn btn-primary">Primary</button>
     </div>
     </form>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"

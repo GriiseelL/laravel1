@@ -50,7 +50,23 @@ class CarController extends Controller
         return view('v_edit');
     }
 
-    public function update() {
+    public function update(Request $request, $id_car)
+    {
+        $data = Car::find($id_car);
+        $data->merk = $request->merk;
+        $data->image = $request->img;
+        $data->category = $request->ctg;
         
+        $data->save();
+
+        return redirect()->route('car');
+
+    }
+
+    public function delete($id_car) {
+        $data = Car::where('id_car', $id_car)->first();
+        $data->delete();
+
+        return redirect()->route('car');
     }
 }
