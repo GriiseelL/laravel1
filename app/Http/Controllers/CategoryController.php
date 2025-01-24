@@ -42,4 +42,15 @@ class CategoryController extends Controller
         
         return view('v_editCtg');
     }
+    public function update(Request $request, $id_category)  {
+        
+        $data = Categories::where ($id_category)->first();
+
+        $data->name = $request->name;
+
+        $data->save();
+
+        return redirect()->route('v_category');
+        
+    }
 }

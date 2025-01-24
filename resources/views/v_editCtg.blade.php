@@ -20,7 +20,7 @@
             <div class="input-group mt-5 mb-3">
                 <span class="input-group-text" id="inputGroup-sizing-default">Nama</span>
                 <input type="text" class="form-control" aria-label="Sizing example input"
-                    aria-describedby="inputGroup-sizing-default" name="merk" value="{{$data->name}}">
+                    aria-describedby="inputGroup-sizing-default" name="name" value="{{$data->name}}">
             </div>
             <br>
             <button type="submit" class="btn btn-success">Success</button>
