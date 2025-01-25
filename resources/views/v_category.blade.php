@@ -24,8 +24,7 @@
                     <td>{{$category->id_category}}</td>
                     <td>{{$category->name}}</td>
                     {{-- <td>{{$car->category}}</td> --}}
-                    <td><a href="{{route('category.edit', $category->id_category)}}">edit</a>/<a>
-                            {{-- href="{{route('actionDelete', $car->id_car)}}">delete</a></td> --}}
+                    <td><a href="{{route('category.edit', $category->id_category)}}">edit</a>/<a href="{{route('category.destroy', $category->id_category)}}">delete</a></td>
                 </tr>
             @empty
                 <tr>

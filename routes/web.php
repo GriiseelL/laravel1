@@ -18,6 +18,7 @@ Route::group(['prefix' => 'category', 'as' => 'category.'], function() {
     Route::post('store', [CategoryController::class, 'store'])->name('store');
     Route::get('edit/{id_category}', [CategoryController::class, 'edit'])->name('edit');
     Route::put('update/{id_category}', [CategoryController::class, 'update'])->name('update');
+    Route::get('destroy/{id_category}', [CategoryController::class, 'destroy'])->name('destroy');
 });
 Route::get('/', function () {
     return view('welcome');
