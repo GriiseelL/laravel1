@@ -16,11 +16,11 @@ class CategoryController extends Controller
             'kategori' => $category
         ]);
 
-        return view('v_category');
+        return view('category.v_category');
     }
 
     public function create() {
-        return view('v_create');
+        return view('category.v_create');
     }
 
     public function store(Request $request) {
@@ -40,7 +40,7 @@ class CategoryController extends Controller
             'data' => $data
         ]);
         
-        return view('v_editCtg');
+        return view('category.v_editCtg');
     }
     public function update(Request $request, $id_category)  {
 

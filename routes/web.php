@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BookController;
 use App\Http\Controllers\CarController;
 use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
@@ -19,6 +20,10 @@ Route::group(['prefix' => 'category', 'as' => 'category.'], function() {
     Route::get('edit/{id_category}', [CategoryController::class, 'edit'])->name('edit');
     Route::put('update/{id_category}', [CategoryController::class, 'update'])->name('update');
     Route::get('destroy/{id_category}', [CategoryController::class, 'destroy'])->name('destroy');
+});
+
+Route::group(['prefix' => 'book','as' => 'book'], function() {
+    Route::get('index', action: [BookController::class, 'index'])->name('index');
 });
 Route::get('/', function () {
     return view('welcome');
