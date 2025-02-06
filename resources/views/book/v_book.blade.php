@@ -1,6 +1,6 @@
 @extends('layout.bookDashboard')
 @section('content')
-
+<form action="{{route('book.create')}}">
     <div class="container-fluid container">
         <div class="row">
             <h1 style="text-align: center; margin-top: 60px;">BOOK</h1>
@@ -11,13 +11,14 @@
                         <div class="card-body">
                             <h5 class="card-title">{{$book->judul}}</h5>
                             <p class="card-text">{{$book->desk}}</p>
-                            <a href="{{Route('book.detail', $book->book_id)}}" class="btn btn-primary">Go somewhere</a>
+                            <a href="{{Route('book.detail', $book->book_id)}}" class="btn btn-primary">See more</a>
+                            <button type="submit" class="btn btn-danger">Delete</button>
                         </div>
                     </div>
                 </div>
             @endforeach
         </div> <br>
-        <button type="submit" class="btn btn-info">Create</button>
+        <button type="submit" class="btn btn-primary">Create</button>
     </div>
 </form>
 @endsection
