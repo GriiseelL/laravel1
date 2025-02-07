@@ -12,7 +12,7 @@
                             <h5 class="card-title">{{$book->judul}}</h5>
                             <p class="card-text">{{$book->desk}}</p>
                             <a href="{{Route('book.detail', $book->book_id)}}" class="btn btn-primary">See more</a>
-                            <button type="submit" class="btn btn-danger">Delete</button>
+                          <a href="{{route('book.destroy', $book->book_id)}}"><button type="button" class="btn btn-danger">Delete</button></a>
                         </div>
                     </div>
                 </div>

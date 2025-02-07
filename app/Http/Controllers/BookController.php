@@ -37,10 +37,13 @@ class BookController extends Controller
 
     function store(Request $request)
     {
+
         $book = new Book();
         $book->judul = $request->judul;
         $book->author = $request->author;
         $book->desk = $request->desk;
+        // $book->img = $request->img;
+    
 
         $book->save();
 
@@ -69,6 +72,14 @@ class BookController extends Controller
         $book->save();
 
         return redirect('book/detail');
+    }
+
+    function destroy($book_id) {
+        $book = Book::where('book_id', $book_id);
+
+        $book->delete();
+
+        return redirect('book/index');
     }
 
 }

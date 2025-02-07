@@ -29,6 +29,7 @@ Route::group(['prefix' => 'book', 'as' => 'book.'], function () {
     Route::post('store', [BookController::class, 'store'])->name('store');
     Route::get('edit/{book_id}', [BookController::class, 'edit'])->name('edit');
     Route::put('update/{book_id}', [BookController::class, 'update'])->name('update');
+    Route::get('destroy/{book_id}', [BookController::class, 'destroy'])->name('destroy');
 });
 Route::get('/', function () {
     return view('welcome');
