@@ -1,6 +1,6 @@
 @extends('layout.bookDashboard')
 @section('content')
-<form action="{{Route('book.store')}}" method="POST">
+<form action="{{Route('book.store')}}" method="POST" enctype="multipart/form-data">
     @csrf
     <div class="container">
         <h1 style="text-align: center; padding-top: 50px">Category</h1>

@@ -7,7 +7,7 @@
             @foreach ($buku as $book)
                 <div class="col-md-3" style="margin-top: 30px;">
                     <div class="card" style="width: 18rem; margin-top: 20px;">
-                        <img src="..." class="card-img-top" alt="...">
+                        <img src="{{asset('images/'.$book->image)}}" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">{{$book->judul}}</h5>
                             <p class="card-text">{{$book->desk}}</p>

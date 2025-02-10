@@ -38,12 +38,20 @@ class BookController extends Controller
     function store(Request $request)
     {
 
+        $request->validate([
+            'img' => 'required|image|mimes:png,jpg,jpeg,svg|max:2048',
+        ]);
+
         $book = new Book();
         $book->judul = $request->judul;
         $book->author = $request->author;
         $book->desk = $request->desk;
-        // $book->img = $request->img;
-    
+        
+        
+        $imageName = time() . '.' . $request->img->extension();
+        $book->image = $imageName;
+
+        $request->img->move(public_path('images'), $imageName);
 
         $book->save();
 
@@ -64,17 +72,18 @@ class BookController extends Controller
 
     function update(Request $request, $book_id)
     {
-        $book = Book::where('book_id', $book_id)->first();        
+        $book = Book::where('book_id', $book_id)->first();
         $book->judul = $request->judul;
         $book->author = $request->author;
         $book->desk = $request->desk;
-        
+
         $book->save();
 
         return redirect('book/detail');
     }
 
-    function destroy($book_id) {
+    function destroy($book_id)
+    {
         $book = Book::where('book_id', $book_id);
 
         $book->delete();
