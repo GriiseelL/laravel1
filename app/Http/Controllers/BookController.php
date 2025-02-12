@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Book;
+use App\Models\Categories;
 use Illuminate\Http\Request;
 
 class BookController extends Controller
@@ -20,18 +21,29 @@ class BookController extends Controller
 
     function create()
     {
+        $category = Categories::get();
+
+        view()->share([
+            'kategori' => $category
+        ]);
+
         return view('book.v_create');
     }
 
     function detail($book_id)
     {
-        $book = Book::where('book_id', $book_id)->first();
-        // dd($book);
-        // $book = Book::where('book_id', $book_id);
+        $book = Book::where('book_id', $book_id)
+            // dd($book);
+            // $book = Book::where('book_id', $book_id);
 
-        // view()->share([
-        //     'buku' => $book
-        // ]);
+            // view()->share([
+            //     'buku' => $book
+            // ]);
+
+            ->join('categories', 'book.id_category', '=', 'categories.id_category')
+            ->first();
+        // dd($book);
+
         return view('book.detail', compact('book'));
     }
 
@@ -43,11 +55,13 @@ class BookController extends Controller
         ]);
 
         $book = new Book();
+        // $category = new Categories();
         $book->judul = $request->judul;
         $book->author = $request->author;
         $book->desk = $request->desk;
-        
-        
+        $book->id_category = $request->ctg;
+
+
         $imageName = time() . '.' . $request->img->extension();
         $book->image = $imageName;
 
