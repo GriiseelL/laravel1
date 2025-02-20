@@ -3,6 +3,9 @@
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\CarController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ChartController;
+use App\Http\Controllers\DataController;
+use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 use Symfony\Component\Console\Input\Input;
 
@@ -31,6 +34,20 @@ Route::group(['prefix' => 'book', 'as' => 'book.'], function () {
     Route::put('update/{book_id}', [BookController::class, 'update'])->name('update');
     Route::get('destroy/{book_id}', [BookController::class, 'destroy'])->name('destroy');
 });
+
+Route::get('chart', [ChartController::class, 'chart'])->name('chart');
+
+Route::group(['prefix' => 'login', 'as' => 'login.'], function () {
+    Route::get('login', [LoginController::class, 'login'])->name('login');
+    Route::post('action', [LoginController::class, 'actionLogin'])->name('action');
+    Route::get('home', [LoginController::class, 'home'])->name('home');
+});
+
+Route::group(['prefix' => 'regis', 'as' => 'regis.'], function () {
+    Route::get('regis', [LoginController::class, 'regis'])->name('regis');
+    Route::post('create', [LoginController::class, 'createRegis'])->name('create');
+});
+
 Route::get('/', function () {
     return view('welcome');
 });

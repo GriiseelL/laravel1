@@ -32,7 +32,8 @@ class BookController extends Controller
 
     function detail($book_id)
     {
-        $book = Book::where('book_id', $book_id)
+        // $book = Book::where('book_id', $book_id)
+        $book = Book::all();
             // dd($book);
             // $book = Book::where('book_id', $book_id);
 
@@ -40,9 +41,10 @@ class BookController extends Controller
             //     'buku' => $book
             // ]);
 
-            ->join('categories', 'book.id_category', '=', 'categories.id_category')
-            ->first();
-        // dd($book);
+            // ->join('categories', 'book.id_category', '=', 'categories.id_category')
+            // ->first();
+            // dd($book);  
+        dd($book);
 
         return view('book.detail', compact('book'));
     }

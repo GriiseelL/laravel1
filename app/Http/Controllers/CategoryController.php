@@ -54,12 +54,12 @@ class CategoryController extends Controller
 
         return redirect('category/index');
         
-    }
+}
 
-    public function destroy($id_category) {
-        $data = Categories::where('id_category', $id_category);
-        $data->delete();
+public function destroy($id_category) {
+$data = Categories::where('id_category', $id_category);
+$data->delete();
 
-        return redirect('category/index');
-    }
+return redirect('category/index');
+}
 }
